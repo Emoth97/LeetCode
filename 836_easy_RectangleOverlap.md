@@ -1,0 +1,31 @@
+A rectangle is represented as a list `[x1, y1, x2, y2]`, where `(x1, y1)` are the coordinates of its bottom-left corner, and `(x2, y2)` are the coordinates of its top-right corner.
+
+Two rectangles overlap if the area of their intersection is positive.  To be clear, two rectangles that only touch at the corner or edges do not overlap.
+
+Given two (axis-aligned) rectangles, return whether they overlap.
+
+Example 1:
+
+	Input: rec1 = [0,0,2,2], rec2 = [1,1,3,3]
+	Output: true
+
+Example 2:
+
+	Input: rec1 = [0,0,1,1], rec2 = [1,0,2,1]
+	Output: false
+
+Notes:
+
+>1.Both rectangles rec1 and rec2 are lists of 4 integers.  
+>2.All coordinates in rectangles will be between -10^9 and 10^9.
+
+#注意点：
+>1.小学数学题，判断不相交的情况即可
+
+	bool isRectangleOverlap(int* rec1, int rec1Size, int* rec2, int rec2Size) {
+	    if(rec2[2] <= rec1[0]) { return false; }
+	    else if(rec2[0] >= rec1[2]) { return false; }
+	    else if(rec2[3] <= rec1[1]) { return false; }
+	    else if(rec2[1] >= rec1[3]) { return false; }
+	    else { return true; }
+	}
